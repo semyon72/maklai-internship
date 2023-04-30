@@ -1,6 +1,6 @@
 ## Test task (Python internship)
 
-### Deployment instructions (Lunux)
+### Deployment instructions (Linux)
 
 1. Create a directory and make it current:
 
