@@ -67,7 +67,6 @@ class NLTKTreeParaphrase(Collection):
         if not lens:
             return 0
         trees_len = reduce((lambda x, y: x * y), lens)
-        # cor = len(self._subtrees) - 1
 
         return trees_len
 
