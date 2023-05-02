@@ -88,12 +88,16 @@ class NLTKTreeParaphrase(Collection):
             for casei, (parent_index, cparent, _subtrees_idx_for_prnt, tree) in enumerate(case):
                 repl_parent_index, repl_parent = main_case[casei]
 
-                # this is a more right implementation (no deep copy, that was the original idea,
-                # just move the tree to a different location)
-                # but a bit tricky
-                list.pop(repl_parent, repl_parent_index)
-                tree._parent = None
-                repl_parent.insert(repl_parent_index, tree)
+                # # this is a more right implementation (no deep copy, that was the original idea,
+                # # just move the tree to a different location)
+                # # but a bit tricky
+                # list.pop(repl_parent, repl_parent_index)
+                # tree._parent = None
+                # repl_parent.insert(repl_parent_index, tree)
+
+                # the next one is even shorter
+                tree._parent = repl_parent
+                list.__setitem__(repl_parent, repl_parent_index, tree)
 
                 # # It was the first edition
                 # # Looks like a bug.
